@@ -11,6 +11,12 @@ type User struct {
 	Username string
 	Password string
 	Email    string
+	Roles    []Role `gorm:"many2many:user_roles;"`
+}
+
+type Role struct {
+	gorm.Model
+	Name string
 }
 
 func init() {
@@ -19,7 +25,7 @@ func init() {
 		panic(err)
 	}
 
-	cservice.MigrateModels(&User{})
+	cservice.MigrateModels(&User{}, &Role{})
 }
 
 func main() {
