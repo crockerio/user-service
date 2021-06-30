@@ -32,12 +32,19 @@ type Role struct {
 }
 
 func init() {
-	err := cservice.InitDatabase("root:root@tcp(localhost:3306)/user-service?charset=utf8&parseTime=True&loc=Local", &gorm.Config{})
+	db := &cservice.DatabaseConfig{
+		User:     "root",
+		Password: "root",
+		Host:     "localhost",
+		Port:     3306,
+		Database: "user-service",
+		Models:   []interface{}{User{}, Role{}, PasswordResets{}},
+	}
+
+	err := cservice.InitDatabase(db)
 	if err != nil {
 		panic(err)
 	}
-
-	cservice.MigrateModels(&User{}, &Role{}, &PasswordResets{})
 }
 
 func main() {
