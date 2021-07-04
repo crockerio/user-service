@@ -8,16 +8,6 @@ import (
 	"gorm.io/gorm"
 )
 
-type User struct {
-	gorm.Model
-	Username        string
-	Password        string
-	Email           string
-	EmailVerifiedAt time.Time
-	Roles           []Role `gorm:"many2many:user_roles;"`
-	PasswordResets  []PasswordResets
-}
-
 type PasswordResets struct {
 	UserId     int
 	User       User
@@ -31,7 +21,7 @@ type Role struct {
 	Name string
 }
 
-func init() {
+func main() {
 	db := &cservice.DatabaseConfig{
 		User:     "root",
 		Password: "root",
@@ -45,8 +35,9 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
-}
 
-func main() {
-	//
+	server := cservice.NewServer()
+	server.Resource("/user", &userController{})
+
+	server.Start(5000)
 }
