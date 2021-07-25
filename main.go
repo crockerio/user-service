@@ -36,8 +36,8 @@ func main() {
 		panic(err)
 	}
 
-	server := cservice.NewServer()
+	server := cservice.NewServer(5000)
 	server.Resource("/user", &userController{})
 
-	server.Start(5000)
+	server.Start()
 }
