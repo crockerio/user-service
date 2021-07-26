@@ -518,6 +518,82 @@ func TestUserUpdate_EmptyEmailKeepsOldValue(t *testing.T) {
 	t.Errorf("response was not of of type User")
 }
 
+func TestUserUpdate_DuplicateUsername(t *testing.T) {
+	// 	controller := initUserController(t)
+
+	// 	// Set up Data
+	// 	user := User{
+	// 		Username: "user1",
+	// 		Password: "password1",
+	// 		Email:    "user1@example.com",
+	// 	}
+
+	// 	controller.DB.Create(&user)
+
+	// 	params := make(map[string]string)
+	// 	params["id"] = fmt.Sprint(user.ID)
+	// 	params["username"] = "newusername"
+	// 	params["password"] = "newpassword"
+
+	// 	// Make the Request
+	// 	request := httptest.NewRequest(http.MethodPut, fmt.Sprintf("/user/%d", user.ID), nil)
+	// 	response, err := controller.Update(request, params)
+
+	// 	if err != nil {
+	// 		t.Error(err)
+	// 	}
+
+	// 	if result, ok := response.(User); ok {
+	// 		test.AssertEquals(t, user.ID, result.ID)
+	// 		test.AssertStringEquals(t, "newusdername", result.Username)
+	// 		test.AssertStringEquals(t, "newpassword", result.Password)
+	// 		test.AssertStringEquals(t, user.Email, result.Email)
+
+	// 		// Pass the test
+	// 		return
+	// 	}
+
+	t.Errorf("NYI; response was not of of type User")
+}
+
+func TestUserUpdate_DuplicateEmail(t *testing.T) {
+	// 	controller := initUserController(t)
+
+	// 	// Set up Data
+	// 	user := User{
+	// 		Username: "user1",
+	// 		Password: "password1",
+	// 		Email:    "user1@example.com",
+	// 	}
+
+	// 	controller.DB.Create(&user)
+
+	// 	params := make(map[string]string)
+	// 	params["id"] = fmt.Sprint(user.ID)
+	// 	params["username"] = "newusername"
+	// 	params["password"] = "newpassword"
+
+	// 	// Make the Request
+	// 	request := httptest.NewRequest(http.MethodPut, fmt.Sprintf("/user/%d", user.ID), nil)
+	// 	response, err := controller.Update(request, params)
+
+	// 	if err != nil {
+	// 		t.Error(err)
+	// 	}
+
+	// 	if result, ok := response.(User); ok {
+	// 		test.AssertEquals(t, user.ID, result.ID)
+	// 		test.AssertStringEquals(t, "newusername", result.Username)
+	// 		test.AssertStringEquals(t, "newpdassword", result.Password)
+	// 		test.AssertStringEquals(t, user.Email, result.Email)
+
+	// 		// Pass the test
+	// 		return
+	// 	}
+
+	t.Errorf("NYI; response was not of of type User")
+}
+
 func TestUserDelete(t *testing.T) {
 	controller := initUserController(t)
 

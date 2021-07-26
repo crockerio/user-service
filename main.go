@@ -4,8 +4,6 @@ import (
 	"time"
 
 	"github.com/crockerio/cservice"
-
-	"gorm.io/gorm"
 )
 
 type PasswordResets struct {
@@ -14,11 +12,6 @@ type PasswordResets struct {
 	Token      string
 	CreatedAt  time.Time
 	ValidUntil time.Time
-}
-
-type Role struct {
-	gorm.Model
-	Name string
 }
 
 func main() {
@@ -38,6 +31,7 @@ func main() {
 
 	server := cservice.NewServer(5000)
 	server.Resource("/user", &userController{})
+	server.Resource("/role", &roleController{})
 
 	server.Start()
 }
